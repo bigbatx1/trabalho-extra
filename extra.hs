@@ -94,4 +94,25 @@ triplas lst = map (\(x,y,z) -> x*y*z) (filter (\(x,y,z) -> x > y && y <z ) lst)
 triplas :: [(Int, Int, Int)] -> [Int]
 triplas lst = map (\(x,y,z) -> x+y+z) (filter (\(x,y,z) -> odd(x+y+z) ) lst)
 
+--ex5
+data ArvoreBinInt = Nulo | No Int ArvoreBinInt ArvoreBinInt
+                    deriving(Show, Eq)
+
+arvEx::ArvoreBinInt
+arvEx = (No 2 (No 7 (No 12 Nulo Nulo) (No 6 (No 5 Nulo Nulo) (No 11 Nulo Nulo))) (No 15 Nulo (No 9 (No 4 Nulo Nulo) Nulo)))
+buscaPos :: Int -> ArvoreBinInt -> (Bool, Int)
+buscaPos elem arv = buscaPosAux elem arv 0
+
+buscaPosAux :: Int -> ArvoreBinInt -> Int -> (Bool, Int)
+buscaPosAux _ Nulo cont = (False, cont)
+buscaPosAux elem (No info esq dir) cont = do
+    if acho1 then (acho1, cont1)
+    else 
+        if achou2 then (achou2, cont2)
+            else (achou3, cont3)
+            where
+                (acho1, cont1) = buscaPosAux elem esq (cont)
+                (achou2, cont2) = buscaPosAux elem dir (cont1)
+                (achou3, cont3) = if info == elem then (True, cont2+1) else (False, cont2+1)
+
 
