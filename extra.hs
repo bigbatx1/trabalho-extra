@@ -138,6 +138,13 @@ somapares (No info esq dir) = add (somapares esq) (somapares dir)
         
         
         
+ --ex7
  
+ data Cliente = Nome String 
+              | Codigo Int
+              |Meses Int
+              |Pagamento String
+              |Volume String
+  deriving (Eq, Show)
  
  
