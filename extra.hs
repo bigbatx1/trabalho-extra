@@ -98,6 +98,7 @@ triplas lst = map (\(x,y,z) -> x+y+z) (filter (\(x,y,z) -> odd(x+y+z) ) lst)
 data ArvoreBinInt = Nulo | No Int ArvoreBinInt ArvoreBinInt
                     deriving(Show, Eq)
 
+
 arvEx::ArvoreBinInt
 arvEx = (No 2 (No 7 (No 12 Nulo Nulo) (No 6 (No 5 Nulo Nulo) (No 11 Nulo Nulo))) (No 15 Nulo (No 9 (No 4 Nulo Nulo) Nulo)))
 buscaPos :: Int -> ArvoreBinInt -> (Bool, Int)
@@ -105,14 +106,38 @@ buscaPos elem arv = buscaPosAux elem arv 0
 
 buscaPosAux :: Int -> ArvoreBinInt -> Int -> (Bool, Int)
 buscaPosAux _ Nulo cont = (False, cont)
-buscaPosAux elem (No info esq dir) cont = do
+buscaPosAux elem (No info esq dir) cont = 
+  let
+    (acho1, cont1) = buscaPosAux elem esq (cont)
+    (achou2, cont2) = buscaPosAux elem dir (cont1)
+    (achou3, cont3) = if info == elem then (True, cont2+1) else (False, cont2+1)
+   
+  in 
     if acho1 then (acho1, cont1)
     else 
         if achou2 then (achou2, cont2)
             else (achou3, cont3)
-            where
-                (acho1, cont1) = buscaPosAux elem esq (cont)
-                (achou2, cont2) = buscaPosAux elem dir (cont1)
-                (achou3, cont3) = if info == elem then (True, cont2+1) else (False, cont2+1)
+
+--ex6
 
 
+data ArvoreBinInt = Nulo | No Int ArvoreBinInt ArvoreBinInt
+                    deriving(Show, Eq)
+arvEx::ArvoreBinInt
+arvEx = (No 7 (No 3 (No 1 Nulo Nulo) (No 6 (No 4 Nulo Nulo) Nulo)) (No 10 Nulo (No 14 Nulo Nulo))) 
+
+
+
+
+somapares :: ArvoreBinInt -> (Int, Int)
+somapares Nulo = (0,0)
+somapares (No info Nulo Nulo) = if even info then (info, 0) else (0,0)
+somapares (No info esq dir) = add (somapares esq) (somapares dir)
+    where
+        add (contEsq1, contEsq2) (contDir1, contDir2) = if even info then (contEsq1+contDir1, contEsq2+contDir2+info) else (contEsq1+contDir1, contEsq2+contDir2)
+        
+        
+        
+ 
+ 
+ 
