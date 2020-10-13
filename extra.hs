@@ -146,5 +146,37 @@ somapares (No info esq dir) = add (somapares esq) (somapares dir)
               |Pagamento String
               |Volume String
   deriving (Eq, Show)
+  
+   BestCompra, :: [Cliente]
+   BestCompra, =
+     [
+        (TA "Andre" 2001 10 Dinheiro Baixo),
+        (TA "arcia" 2001 8 Dinheiro Baixo),
+        (TA "arcio" 2001 7 Dinheiro Baixo),
+        (TA "Cleide" 2001 5 Dinheiro Medio),
+        (TA "dalfo" 2001 6 Dinheiro Medio),
+        (TA "darcio" 2001 7 Dinheiro Medio),
+        (TA "dagata" 2001 8 Dinheiro Alto),
+        (TA "dine" 2001 9 Dinheiro Alto),
+        (TA "din0" 2001 10 Dinheiro Alto),
+        (TA "eussa" 2001 5 Cartao Baixo),
+        (TA "eusso" 2001 7 Cartao Baixo),
+        (TA "fatima" 2001 8 Cartao Baixo),
+        (TA "fatimo" 2001 12 Cartao Medio),
+        (TA "giovana" 2001 10 Cartao Medio),
+        (TA "giovano" 2001 7 Cartao Medio),
+        (TA "henri" 2001 8 Cartao Alto),
+        (TA "henro" 2001 9 Cartao Alto),
+        (TA "isa" 2001 5 Cartao Alto),
+        (TA "iso" 2001 8 Boleto Baixo),
+        (TA "junio" 2001 9 Boleto Baixo),
+        (TA "junia" 2001 10 Boleto Baixo),
+        (TA "karlos" 2001 11 Boleto Medio),
+        (TA "karlas" 2001 10 Boleto Medio),
+        (TA "lisa" 2001 8 Boleto Medio),
+        (TA "liso" 2001 6 Boleto Alto),
+        (TA "marcela" 2001 5 Boleto Alto),
+        (TA "marcelo" 2001 7 Boleto Alto)
+        ]
  
  
