@@ -140,12 +140,14 @@ somapares (No info esq dir) = add (somapares esq) (somapares dir)
         
  --ex7
  type Nome = String
+ type Codigo=Int
+ type Meses=Int
  type Pagamento = String
  type Volume = String
 
 
 
-data TA = Cliente Nome  Int Int Pagamento Volume deriving (Show)
+data TA = Cliente Nome  Codigo Meses Pagamento Volume deriving (Show)
 
 listaClientesTA :: [TA]
 listaClientesTA =
