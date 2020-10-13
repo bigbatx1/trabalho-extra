@@ -36,7 +36,7 @@ selectionSort :: (Ord a) => [a] -> [a]
 selectionSort [] = []
 selectionSort [x] = [x]
 selectionSort lst =
-  let (least, novoUlt) = removeMenor (head lst, tail lst)
+  let (least, novoUlt) = removeMaior (head lst, tail lst)
    in least : (selectionSort novoUlt)
    
    
